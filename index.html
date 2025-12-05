@@ -3,31 +3,206 @@
 <head>
     <title>Amnesty International</title>
     <style>
-        /*rgb(223, 215, 215)*/
+        /* Base Reset */
+        * {
+        margin: 0px;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Arial, sans-serif;
+        }
+
+        body {
+        background-color: #f4f4f4;
+        }
+
+        /* Navbar Base (Mobile First) */
+        .navbar {
+        background-color: #333;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 20px;
+        height: 60px;
+        position: relative;
+        }
+
+        .logo {
+        color: #fff;
+        font-size: 16px;
+        display: flex;
+        }
+
+        .toggle-links{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        @media(min-width:601px) and (max-width:1024px){
+            .toggle-links{
+                flex-direction: row-reverse;
+            }
+        }
+        @media(min-width:1025px){
+            .toggle-links{
+                flex-direction: row-reverse;
+            }
+        }
+
+        .menu-toggle {
+        display: block;
+        font-size: 28px;
+        color: white;
+        cursor: pointer;
+        margin-right: -10px;
+        }
+
+        /* Nav Links hidden by default on mobile */
+        .nav-links {
+        list-style: none;
+        flex-direction: column;
+        background-color: #333;
+        position: absolute;
+        top: 60px;
+        right: 0;
+        width: 100%;
+        display: none;
+        font-size: 11px;
+        font-weight: bold;
+        }
+
+        .nav-links.show {
+        display: flex;
+        }
+
+        .nav-links li {
+        text-align: center;
+        padding: 10px 0;
+        }
+
+        .nav-links li a {
+        text-decoration: none;
+        color: white;
+        padding: 5px 10px;
+        transition: background 0.3s;
+        }
+
+        .nav-links li a:hover {
+        background-color: #555;
+        border-radius: 5px;
+        }
+
+        /*Beginning*/
+
         .box{
             width: 100%;
-            height: 80px;
-            background-color: green;
+            height: 10vh;
+            background-color: grey;
             color: white;
             display: flex;
             justify-content: center;
-            padding-left: 0px;
-            flex-direction: row;
+            flex-direction: column;
             align-items: center;
+            gap: 10px;
         }
-         .boxc{
-            width: 950px;
-            height: 80px;
-            background-color: none;
+         @media(min-width:601px) and (max-width:1024px){
+            .box{
+                gap: 0px;
+                flex-direction: row;
+                flex-wrap: wrap;
+            }
+        }
+        @media(min-width:1025px){
+            .box{
+                gap: 0px;
+                flex-direction: row;
+            }
+        }
+        .enclose{
+            background-color: transparent;
+            width: 20vw;
+            height: 5vh;
             display: flex;
             justify-content: center;
-           margin-left:380px;
-            flex-direction: row;
+            align-items: center;
+            gap: 15px;
+            margin-right: 45px;
+        }
+         @media(min-width:601px) and (max-width:1024px){
+            .enclose{
+                gap: 10px;
+                margin-right: 130px;
+                margin-left: 150px;
+                
+            }
+        }
+        .enclose a,
+        .enclose2 a{
+            color: white;
+            font-weight: bold;
+            font-size: 14px;
+        }
+        .enclose a:hover,
+        .enclose2 a:hover{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 22vw;
+            height: 2vh;
+            background-color: black;
+        }
+         @media(min-width:601px) and (max-width:1024px){
+            .enclose a:hover,
+            .enclose2 a:hover{
+               width: 10vw;
+            }
+        }
+        @media(min-width:1025px){
+            .enclose a:hover,
+            .enclose2 a:hover{
+                width: 6vw;
+            }
+        }
+
+        .enclose2{
+            background-color: transparent;
+            width: 15vw;
+            height: 5vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-right: 20px;
+        }
+        @media(min-width:601px) and (max-width:1024px){
+            .enclose2{
+                gap: 10px;
+                margin-left: -35px;
+            }
+        }
+        .boxc{
+            width: 70vw;
+            height: 5vh;
+            background-color: transparent;
+            display: flex;
+            justify-content: center;
+            margin-left:0px;
             align-items: center;
         }
+        @media(min-width:601px) and (max-width:1024px){
+            .boxc{
+                flex: 100%;
+            }
+        }
+        @media(min-width:1025px){
+            .boxc{
+               width: 0vw;
+               margin-left: 240px; 
+               margin-right: 15px;
+               width: 30vw;
+            }
+        }
         .omorr1{
-            width: 80px;
-            height: 40px;
+            width: 15vw;
+            height: 5vh;
             background-color: none;
             color: white;
             display: flex;
@@ -38,8 +213,8 @@
             padding-left: 0px;
         }
         .omorr2{
-            width: 80px;
-            height: 40px;
+            width: 15vw;
+            height: 5vh;
             background-color: none;
             color: white;
             display: flex;
@@ -50,8 +225,8 @@
             padding-left: 0px;
         }
         .omorr3{
-            width: 80px;
-            height: 40px;
+            width: 15vw;
+            height: 5vh;
             background-color: none;
             color: white;
             display: flex;
@@ -62,8 +237,8 @@
             padding-left: 0px;
         }
         .omorr4{
-            width: 80px;
-            height: 40px;
+            width: 15vw;
+            height: 5vh;
             background-color: none;
             color: white;
             display: flex;
@@ -74,8 +249,8 @@
             padding-left: 0px;
         }
         .omorr5{
-            width: 80px;
-            height: 40px;
+            width: 15vw;
+            height: 5vh;
             background-color: none;
             color: white;
             display: flex;
@@ -87,26 +262,50 @@
         }
         
         .omor2{
-            width: 90px;
-            height: 40px;
+            width: 20vw;
+            height: 2vh;
             background-color: black;
             color: white;
             display: flex;
             flex-direction: row;
             align-items: center;
             justify-content: center;
-            margin: 10px;
+            padding: 10px;
         }
-         .omor3{
-            width: 80px;
-            height: 40px;
+        .box button{
+            width: 15vw;
+            height: 2vh;
             background-color: white;
             color: black;
             display: flex;
             flex-direction: row;
+            font-size: 12px;
             align-items: center;
             justify-content: center;
-            padding-left: 00px;
+            margin-left: 425px;
+            margin-top: -80px;
+            position: absolute;
+            gap: 3px;
+            border-radius: 0%;
+            border: 1.8px solid black;
+        }
+         @media(min-width:601px) and (max-width:1024px){
+            .box button{
+                font-size: 12px;    
+                width: 8vw;
+                position: absolute;
+                margin-left: 400px;
+                margin-top: -80px;
+            }
+        }
+        @media(min-width:1025px){
+            .box button{
+                font-size: 12px;    
+                width: 6vw;
+                position: static;
+                margin-left: 0px;
+                margin-top: 0px;
+            }
         }
         .box2{
             width: 20px;
@@ -114,7 +313,7 @@
         }
         .adam{
             width: 100%;
-            height: 60px;
+            height: 100%;
             background-color: none;
             display: flex;
             flex-direction: row;
@@ -129,23 +328,52 @@
             padding-left: 20px;
         }
         .adam2{
-            width: 50px;
-            height: 100%;
-            background-color: red;
+            width: 30vw;
+            height: 3vh;
+            background-image: url(https://www.amnesty.org/en/wp-content/uploads/2021/08/129327069-45f0fe5f-7fa9-4b09-acbb-3272541534ab-170x72.png);
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
             display: flex;
             flex-direction: row;
             justify-self: flex-end;
-            margin-right: 90px;
-        }.adam2s{
-            width: 80px;
-            height: 100%;
-            background-color: white;
+            margin-right: 10px;
+            margin-left: -130px;
+            margin-top: 65px;
+        }
+         @media(min-width:601px) and (max-width:1024px){
+            .adam2{
+                background-image: url(https://www.amnesty.org/en/wp-content/uploads/2021/08/129327069-45f0fe5f-7fa9-4b09-acbb-3272541534ab-170x72.png);
+                background-position: center;
+                background-repeat: no-repeat;
+                background-size: cover;
+                margin-left: -20px;
+                width: 16vw;
+            }
+        }
+        @media(min-width:1025px){
+            .adam2{
+                background-image: url(https://www.amnesty.org/en/wp-content/uploads/2021/08/129327069-45f0fe5f-7fa9-4b09-acbb-3272541534ab-170x72.png);
+                background-position: center;
+                background-repeat: no-repeat;
+                background-size: cover;
+                margin-left: -20px;
+                width: 10vw;
+                height: 10vh;
+                margin-top: 0px;
+            }
+        }
+        
+        .adam2s{
+            width: auto;
+            height: 10vh;
+            background-color: transparent;
             display: flex;
             flex-direction: row;
             align-self: center;
             align-items: center;
-            padding-left: 30px;
-            
+            padding-right: 15px;
+            border-right: 1px solid grey;
         }
         .adam3{
             width: 1500px;
@@ -212,9 +440,9 @@
            flex-direction: row;
            margin-left: 0px;
         }
-        .adam4{
-            width:120px;
-            height: 100%;
+        button{
+            width:18vw;
+            height: 3vh;
             background-color: yellow;
             color: black;
             display: flex;
@@ -222,42 +450,117 @@
             align-content: center;
             justify-content: center;
             align-items: center;
-            margin-left: 0px;
             font-size: 12px;
+            border-radius: 5px;
+            border: none;
         }
+         @media(min-width:601px) and (max-width:1024px){
+            button{
+                width: 9vw;
+                margin-right: -30px;
+            }
+        }
+        @media(min-width:1025px) {
+            button{
+                width: 9vw;
+                margin-right: -20px;
+                height: 10vh;
+            }
+        }
+
+        button:hover{
+            background-color: azure;
+            color: blue;
+           cursor: pointer;
+        }
+
+        /*Section 1*/
+
         .back{
-            background-image: url(image/back.jpg);
-            width: 100%;
-            height: 600px;
+            background-color: red;
+            background-image: url(https://www.amnesty.org/en/wp-content/uploads/2025/11/WhatsApp-Image-2025-09-24-at-4.13.11-PM-1468x710.jpeg);
+            width: 100vw;
+            height: 70vh;
             background-position: center;
             background-repeat: no-repeat;
             background-size: cover;
             display: flex;
-            align-items: center;
+            justify-content: right;
+            text-align: right;
             flex-direction: column;
             color: white;
-            font-size: 45px;
+            padding: 20px;
+        }
+        @media(min-width:1025px){
+            .back{
+                width: 99vw;
+              
+            }
         }
         .back2{
-            width: 1200px;
-            height: 100px;
+            width: 90vw;
+            height: 10vh;
+            background-color: black;
+            display: flex;
+            align-items: cenlter;
+            justify-content: left;
+            text-align: right;
+            margin-top: 70px;
+            font-size: 34px;
+        }
+         @media(min-width:601px) and (max-width:1024px){
+            .back2{
+                width: 550px;
+                font-size: 2.5em;
+            }
+        }
+        @media(min-width:1025px){
+            .back2{
+                width: 48vw;
+                font-size: 3em;
+              
+            }
+        }
+        .back3{
+            height: 9vh;
             background-color: black;
             display: flex;
             align-items: center;
-            padding-left: 10px;
-            padding-bottom: -20px;
-            margin-top: 147px;
-            margin-bottom: -8px;
-        }
-        .back3{
-            width: 1160px;
-            height: 75px;
-            background-color: black;
-            margin-top: 20px;
-            align-items: center;
             justify-content: center;
-            padding-left: 10px;
-            padding-top: 10px;
+            font-size: 34px;
+        }
+         @media(min-width:601px) and (max-width:1024px){
+            .back3{
+                font-size: 2.5em;
+                padding: 7px;
+            }
+        }
+        @media(min-width:1025px){
+            .back3{
+                font-size: 3em;
+                padding: 7px;
+              
+            }
+        }
+
+        .back3enclose{
+            display: flex;
+            flex-wrap: wrap;
+            margin-bottom: 50px;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        @media(min-width:601px) and (max-width:1024px){
+            .back3enclose{
+                flex-direction: row;
+                gap: 0px;
+            }
+        }
+        @media(min-width:1025px){
+            .back3enclose{
+                flex-direction: row;
+                gap: 0px;
+            }
         }
         .small{
             background-color: black;
@@ -289,15 +592,30 @@
             justify-content: center;
             align-items: center; 
             margin-top: 50px;
+            margin-bottom: 50px;
         }
         .stage1{
+            background-color: red;
            background-image: url(https://www.amnesty.org/en/wp-content/uploads/2025/10/Untitled-design-1-640x400.png);
-            width: 302px;
+           background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+           width: 450px; 
+           flex: 20%;
             height:300px;
             display: flex;
             justify-content: center;
             align-items: center;
-            margin-left: 10px;
+        }
+         @media(min-width:601px) and (max-width:1024px){
+            .stage1{
+               width: 500px;
+            }
+        }
+         @media(min-width:1025px){
+            .stage1{
+               width: 300px;
+            }
         }
         .urgent{
             background-color: black;
@@ -312,39 +630,79 @@
             margin-right: 168px;
             margin-top: 260px;
         }
+         @media(min-width:601px) and (max-width:1024px){
+            .urgent{
+              margin-right: 350px;
+            }
+        }
         .weonly{
             background-color: lightgrey;
-            width: 290px;
-            height: 149px;
+            width: 450px;
+            flex: 20%;
+            height: 160px;
             color: black;
             font-size: 27px;
             display: flex;
             flex-direction: column;
+            justify-content: center;
+            align-items: center;
             padding-top: 15px;
             padding-left: 14px;
-            margin-left: 9px;
         }
-        .actnow1{
+         @media(min-width:601px) and (max-width:1024px){
+            .weonly{
+                flex-direction: column;
+                justify-content: center;
+                width: 500px;
+            }
+        }
+         @media(min-width:1025px){
+            .weonly{
+                flex-direction: column;
+                justify-content: center;
+               width: 300px;
+            }
+        }
+        .main button{
             background-color: yellow;
             width: 270px;
             height: 40px;
             color: black;
-            font-size: 10px;
+            font-size: 12px;
             display: flex;
             justify-content: center;
             align-items: center;
             margin-top: 25px;
         }
+        @media(min-width:1025px){
+            .main button{
+                margin-right: 20px;
+            }
+        }
         .stage2{
+            background-color: red;
            background-image: url(https://www.amnesty.org/en/wp-content/uploads/2022/10/Petition-banners-1-640x400.jpg);
-            width: 302px;
+           background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover; 
+           width: 450px; 
+           flex: 20%;
             height:300px;
             display: flex;
             justify-content: center;
             align-items: center;
-            margin-left: 10px;
         }
-         .cencor{
+         @media(min-width:601px) and (max-width:1024px){
+            .stage2{
+              width: 500px;
+            }
+        }
+        @media(min-width:1025px){
+            .stage2{
+               width: 300px;
+            }
+        }
+        .cencor{
             background-color: black;
             color: white;
             width: 280px;
@@ -357,49 +715,114 @@
             margin-right: 10px;
             margin-top: 260px;
         }
+        @media(min-width:601px) and (max-width:1024px){
+            .cencor{
+               margin-right: 200px;
+            }
+        }
         .stage3{
+            background-color: red;
            background-image: url(https://www.amnesty.org/en/wp-content/uploads/2025/07/Banner-640x400.jpeg);
-            width: 302px;
+           background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+           width: 450px; 
+           flex: 20%;
             height:300px;
             display: flex;
             justify-content: center;
             align-items: center;
-            margin-left: 10px;
+        }
+         @media(min-width:601px) and (max-width:1024px){
+            .stage3{
+               width: 500px;
+            }
+        }
+        @media(min-width:1025px){
+            .stage3{
+               width: 300px;
+            }
         }
          .stage4{
+            background-color: red;
            background-image: url(https://www.amnesty.org/en/wp-content/uploads/2024/03/292922_display-640x400.jpg);
-            width: 302px;
+           background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+           width: 450px; 
+           flex: 20%;
             height:300px;
             display: flex;
             justify-content: center;
             align-items: center;
-            margin-left: 10px;
+        }
+        @media(min-width:601px) and (max-width:1024px){
+            .stage4{
+               width: 500px;
+            }
+        }
+        @media(min-width:1025px){
+            .stage4{
+               width: 290px;
+               padding: 6px;
+            }
         }
          .demand{
             background-color: lightgrey;
-            width: 290px;
-            height: 149px;
+            width: 450px;
+            flex: 20%;
+            height: 160px;
             color: black;
-            font-size: 25px;
+            font-size: 27px;
             display: flex;
             flex-direction: column;
+            justify-content: center;
+            align-items: center;
             padding-top: 15px;
-            padding-left: 12px;
-            margin-left: 9px;
+            padding-left: 14px;
+         }
+        @media(min-width:601px) and (max-width:1024px){
+            .demand{
+                flex-direction: column;
+                justify-content: center;
+               width: 500px;
+            }
+        }
+         @media(min-width:1025px){
+            .demand{
+                flex-direction: column;
+                justify-content: center;
+               width: 300px;
+            }
         }
         .main{
-            background-color: none;
-            width: 1300px;
-            height: 500px;
+            background-color: transparent;
+            width: 100vw;
+            height: 100%;
             display: flex;
-            flex-direction: row;
-            justify-content: space-evenly;
-            margin-left: 20px;
-            margin-right: 30px;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            padding: 0px;
+        }
+        @media(min-width:601px) and (max-width:1024px){
+            .main{
+                flex-wrap: nowrap;
+                gap: 50px;
+                flex-direction: column;
+            }
+        }
+         @media(min-width:1025px){
+            .main{
+                width: 99vw;
+                gap: 20px;
+                flex-direction: row;
+            }
         }
         .submain{
-            background-color: none;
-            width: 310px;
+            background-color: transparent;
+            width:100%;
             height: 500px;
             display: flex;
             flex-direction: column;
@@ -408,271 +831,419 @@
         }
         .campaign{
          background-color: lightgrey;
-         width: 1270px;
-         height: 100px;
+         width: 90vw;
+         height: 40vh;
          color: black; 
-         margin-left: 20px;  
+         margin-left: 20px; 
+         text-align: center; 
+         gap: 20px;
          display: flex;
          justify-content: center;
          align-items: center;
          flex-direction: column;
          margin-left: 40px;
-         padding-top: 15px;
          margin-top: 20px;
         }
-        .latest{
-            background-color: none;
-            width:500px;
-            height: 30px;
+        @media(min-width:601px) and (max-width:1024px){
+            .campaign{
+               width: 90vw;
+        }
+        }
+         @media(min-width:1025px){
+            .campaign{
+               width:  93.5vw;
+            }
+        }
+        .campaign b{
+            font-weight: bold;
+            font-size: 25px;
+        }
+        @media(min-width:601px) and (max-width:1024px){
+            .campaign b{
+               font-size: 1.5em;
+        }
+        }
+         @media(min-width:1025px){
+            .campaign b{
+               font-size: 1.8em;
+            }
+        }
+        .campaign p{
+            font-size: 20px;
+        }
+        @media(min-width:601px) and (max-width:1024px){
+            .campaign p{
+               font-size: 1.5em;
+        }
+        }
+         @media(min-width:1025px){
+            .campaign p{
+               font-size: 1.8em;
+            }
+        }
+        .latet{
+            background-color: transparent;
+            width:100%;
+            height: 10vh;
             display: flex;
             justify-content: center;
             align-items: center;
             font-size: 35px;
-            margin-left: 400px;
-            margin-top:30px;
+            margin-top:50px;
+            margin-bottom: 30px;
         }
         .elsudan{
-            background-color: none;
+            background-color: transparent;
             width: 100%;
-            height: 430px;
+            height: 100%;
+            gap: 15px;
             display: flex;
-            flex-direction: row;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
+            padding: 10px;
+        }
+        @media(min-width:601px) and (max-width:1024px){
+            .elsudan{
+               flex-direction: row;
+               font-size: 1.5em;
+        }
+        }
+         @media(min-width:1025px){
+            .elsudan{
+               flex-direction: row;
+               font-size: 1.8em;
+            }
         }
         .el{
             background-image: url(https://www.amnesty.org/en/wp-content/uploads/2025/10/GettyImages-2217133442-1468x710.jpg);
-            width: 600px;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            width: 80%;
             height: 400px;
             margin-top: 30px;
             display: flex;
-            margin-left: 30px;
             flex-direction: column;
             justify-content: center;
             align-items: center;
         }
         .els{
             background-color: black;
-            width: 70px;
-            height: 40px;
+            width: 15%;
+            height: 10%;
             display: flex;    
             color: white;
-            margin-right: 500px;
+            margin-right: 225px;
             flex-direction: row;
             align-items: center;
             justify-content: center;
-            margin-top: 270px;
+            margin-top: 260px;
 
         }
-         .els2{
+        @media(min-width:601px) and (max-width:1024px){
+            .els{
+                margin-top: 200px;
+                margin-right: 200px;
+                width: 20%;
+        }
+        }
+         @media(min-width:1025px){
+            .els{
+                margin-top: 200px;
+                margin-right:335px;
+                width: 20%;
+            }
+        }
+        .els2{
             background-color: white;
-            width: 400px;
-            height: 40px;
+            width: 70%;
+            height: 20%;
             display: flex;
             align-items: center;
             margin-top: 200px;
             flex-direction: row;
-            margin-left: 20px;
             padding: 5px;
             margin-top: -1px;
-            margin-right: 180px; 
+            margin-right: 10px; 
+        }
+        @media(min-width:601px) and (max-width:1024px){
+            .els2{
+                height: 35%;
+            }
+        }
+         @media(min-width:1025px){
+            .els2{
+                height: 30%;
+            }
         }
         .sudan{
             background-image: url(https://www.amnesty.org/en/wp-content/uploads/2024/12/GettyImages-1639338475-1468x710.jpg);
-            width: 600px;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            width: 80%;
             height: 400px;
             margin-top: 30px;
             display: flex;
-            margin-left: 30px;
             flex-direction: column;
             justify-content: center;
             align-items: center;
         }
          .south{
             background-image: url(https://www.amnesty.org/en/wp-content/uploads/2025/10/311891-1468x710.jpg);
-            width: 400px;
-            height: 350px;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            width: 80%;
+            height: 400px;
             margin-top: 30px;
             display: flex;
-            margin-left: 30px;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            margin-left: 30px;
         }
         .srp{
-            background-color: none;
-            width: 1263px;
-            height: 370px;
+            background-color: transparent;
+            width: 100%;
+            height: 100%;
             display: flex;
-            flex-direction: row;
+            gap: 10px;
+            padding: 10px;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
-            margin-left: 37px;
+        }
+        @media(min-width:601px) and (max-width:1024px){
+            .srp{
+                flex-direction: row;
+            }
+        }
+         @media(min-width:1025px){
+            .srp{
+              flex-direction: row;  
+            }
         }
         .souths{
             background-color: black;
-            width: 70px;
-            height: 40px;
+            width: 15%;
+            height: 10%;
             display: flex;    
             color: white;
-            margin-right: 295px;
+            margin-right: 230px;
             flex-direction: row;
             align-items: center;
             justify-content: center;
-            margin-top: 150px;
+            margin-top: 235px;
+
+        }
+        @media(min-width:601px) and (max-width:1024px){
+            .souths{
+                margin-top: 200px;
+                margin-right: 130px;
+                width: 20%;
+        }
+        }
+         @media(min-width:1025px){
+            .souths{
+                margin-top: 200px;
+                margin-right:230px;
+                width: 20%;
+            }
         }
          .southminor{
             background-color: white;
-            width: 350px;
-            height: 90px;
+            width: 70%;
+            height: 25%;
             display: flex;
             align-items: center;
             margin-top: 200px;
             flex-direction: row;
             padding: 5px;
             margin-top: -1px;
-            font-size: 21px;
-            padding-left: 10px;
+            margin-right: 10px; 
+        }
+        @media(min-width:601px) and (max-width:1024px){
+            .southminor{
+                height: 37%;
+            }
+        }
+         @media(min-width:1025px){
+            .southminor{
+                height: 30%;
+            }
         }
         .russia{
             background-image: url(https://www.amnesty.org/en/wp-content/uploads/2025/10/GettyImages-2199336627-2-1468x710.jpg);
-            width: 400px;
-            height: 350px;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            width: 80%;
+            height: 400px;
             margin-top: 30px;
             display: flex;
-            margin-left: 30px;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            margin-left: 30px;
         }
          .pakistan{
             background-image: url(https://www.amnesty.org/en/wp-content/uploads/2025/09/GettyImages-2163692397.jpg);
-            width: 400px;
-            height: 350px;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            width: 80%;
+            height: 400px;
             margin-top: 30px;
             display: flex;
-            margin-left: 30px;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            margin-left: 30px;
         }
+
+        /*Whobg*/
+
         .whobg{
-            background-color: none;
-            width: 1300px;
-            height: 430px;
+            background-color: transparent;
+            width: 100%;
+            height: 100%;
             display: flex;
-            flex-direction: row;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
-            margin-top: 35px;
+            margin-top: 35px; 
+            padding: 22px;
+            gap: 10px;
+        }
+        @media(min-width:601px) and (max-width:1024px){
+            .whobg{
+                flex-direction: row;
+            }
+        }
+         @media(min-width:1025px){
+            .whobg{
+                flex-direction: row;
+            }
         }
         .whobig{
-            background-color: none;
-            height: 600px;
-            width: 300px;
+            background-color: transparent;
+            height: 80%;
+            width: 90%;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            margin-top: 70px;
-            margin-left: 100px;
         }
+        @media(min-width:601px) and (max-width:1024px){
+            .whobig{
+                width: 30vw;
+            }
+        }
+         @media(min-width:1025px){
+            .whobig{
+                width: 40%;
+            }
+        }
+        
         .who{
-            background-color: none;
-            width: 220px;
-            height: 100px;
+            background-color: transparent;
+            width: 100%;
+            height: 5vh;
+            text-align: center;
             font-size: 40px;
-            margin-right: 20px;
         }
+        @media(min-width:1025px){
+            .who{
+                height: 10vh;
+              margin-bottom:20px  
+            }
+        }
+        
         .who2{
-            background-color: none;
+            background-color: transparent;
             width: 200px;
-            height:70px;
+            height:5vh;
             padding-left: 20px;
             margin-top: -30px;
             margin-right: 10px;
         }
+    
         .sincebrowse{
-            background-color: none;
-            width: 400px;
-            height: 230px;
+            background-color: transparent;
+            width: 100%;
+            height: 10vh;
             display: flex;
             justify-content: center;
             align-items: center;
             flex-direction: column;
-            padding-top: 30px;
+            margin-top: 30px;
+        }
+        @media(min-width:601px) and (max-width:1024px){
+            .sincebrowse{
+                width: 30vw;
+            }
+        }
+        @media(min-width:1025px){
+            .sincebrowse{
+                height: 100%;
+            }
         }
         .since{
-            background-color: none;
+            background-color: transparent;
             width: 350px;
             height: 150px;
             font-size: 17px;
             display: flex;
             justify-content: center;
-            align-items: center;    
-            padding-bottom: -20px;
+            align-items: center;   
+            text-align: center; 
+            margin-top: 10px;
             margin-bottom: 80px;
         }
-        .browse{
+        @media(min-width:601px) and (max-width:1024px){
+            .since{
+                width: 100%;
+            }
+        }
+        @media(min-width:1025px){
+            .since{
+                margin-bottom: 60px;
+            }
+        }
+        .sincebrowse button{
             background-color: white;
-            width: 155px;
-            height: 50px;
+            color: black;
+            width: 35%;
+            height: 5vh;
             display: flex;
             justify-content: center;
             align-items: center;
-            border: solid black;
+            border: 1px solid black;
             font-size: 11px;
             flex-direction: row;
-            margin-bottom:90px;
-            margin-right: 70px;
-            margin-top: -100px;
+            margin-bottom:0px;
+            margin-top: -80px;
+            border-radius: 0px;
         }
-        .takeaction{
-            background-color: white;
-            width: 110px;
-            height: 50px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            border: solid black;
-            font-size: 11px;
-            flex-direction: row;
-            margin-bottom:90px;
-            margin-right: 70px;
-            margin-top: -100px;
+         @media(min-width:601px) and (max-width:1024px){
+            .sincebrowse button{
+                width: 60%;
+                margin-right: 20px;
+            }
         }
-        .sincemid{
-            background-color: none;
-            width: 350px;
-            height: 150px;
-            font-size: 17px;
-            display: flex;
-            justify-content: center;
-            align-items: center;    
-            padding-top: 0px;
-            margin-top: 35px;
+         @media(min-width:1025px){
+            .sincebrowse button{
+                margin-right: 30px;
+                width: 40%;
+                height: 8vh;
+            }
         }
-        .browsemid{
-            background-color: white;
-            width: 155px;
-            height: 62px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            border: solid black;
-            font-size: 11px;
-            flex-direction: row;
-            margin-bottom: 60px;
-            margin-right: 70px;
-            margin-top: -7px;
-            
+        .sincebrowse button:hover{
+            background-color: black;
+            color: white;
         }
 
         .trending{
-            background-color: none;
+            background-color: transparent;
             width: 100%;
             height: 50px;
             display: flex;
@@ -683,227 +1254,184 @@
             margin-top: 25px;
         }
         .sexual{
-            background-image: url(image/sexual.jpg);
-            width: 450px;
-            height: 400px;
+            background-color: green;
+            background-image: url(https://www.amnesty.org/en/wp-content/uploads/2022/06/282799-900x600.jpg);
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            width: 90%;
+            height: 60vh;
             display: flex;
             justify-content: center;
             align-items: center;
-            margin-left: 30px;
-            margin-top: 30px;
+        }
+        @media(min-width:601px) and (max-width:1024px){
+            .sexual{
+                width: 30%;
+            }
         }
         .sad{
-            background-color: none;
-            width: 1300px;
-            height: 500px;
+            background-color: transparent;
+            width: 100%;
+            height: 100%;
             display: flex;
-            flex-direction: row;
+            flex-direction: column;
             justify-content: space-evenly;
             align-items: center;
-            margin-top: -45px;
-            margin-left: 10px;
+            padding: 20px;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        @media(min-width:601px) and (max-width:1024px){
+            .sad{
+                flex-direction: row;
+            }
+        }
+        @media(min-width:1025px){
+            .sad{
+                flex-direction: row;
+            }
         }
         .sexualmini{
             background-color: white;
-            width: 350px;
-            height: 40px;
+            width: 90%;
+            height: 5vh;
             display: flex;
             justify-content: center;
             align-items: center;
             flex-direction: row;
             font-size: 25px;
             margin-top: 300px;
-            margin-right: 25px;
+            margin-right: px;
         }
          .armed{
-            background-image: url(image/armed.jpg);
-            width: 450px;
-            height: 400px;
+            background-color: purple;
+            background-image: url(https://www.amnesty.org/en/wp-content/uploads/2021/06/267178_say-adio%CC%81s-to-unsafe-abortions-in-argentina-899x600.png);
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            width: 90%;
+            height: 60vh;
             display: flex;
             justify-content: center;
             align-items: center;
-            margin-left: 30px;
-            margin-top: 30px;
+        }
+         @media(min-width:601px) and (max-width:1024px){
+            .armed{
+                width: 30%;
+            }
         }
          .armedmini{
             background-color: white;
-            width: 200px;
-            height: 40px;
+            width: 80%;
+            height: 5vh;
             display: flex;
-            justify-content: center;
+            justify-content: left;
             align-items: center;
             flex-direction: row;
             font-size: 25px;
             margin-top: 300px;
-            margin-right: 170px;
+           
         }
          .death{
-            background-image: url(image/death.jpg);
-            width: 450px;
-            height: 400px;
+            background-color: yellow;
+            background-image: url(https://www.amnesty.org/en/wp-content/uploads/2023/11/294558-900x600.jpg);
+           background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            width: 90%;
+            height: 60vh;
             display: flex;
             justify-content: center;
             align-items: center;
-            margin-left: 30px;
-            margin-top: 30px;
         }
+         @media(min-width:601px) and (max-width:1024px){
+            .death{
+                width: 30%;
+            }
+        }
+
+        /*Footer*/
+
         .last{
             background-color: black;
             width: 100%;
-            height: 160px;
+            height: 100%;
             display: flex;
-            flex-direction: row;
+            flex-direction: column;
             justify-content: center;
-            align-items: center;
-            padding-top: 50px;
+            align-items: left;
+            padding: 15px;
         }
         .aboutus{
-            background-color: none;
-            width: 250px;
-            height: 200px;
+            background-color: transparent;
+            width: 100%;
+            height: 100%;
             display: flex;
+            flex-wrap: wrap;
             flex-direction: column;
-            align-items: center;
-            padding-left: 25px;
+            gap: 10px;
+            padding: 5px;
+            justify-content: left;
+            align-items: left;
+        }
+        @media(min-width:601px) and (max-width:1024px){
+            .aboutus{
+                flex-direction: row;
+            }
+        }
+        @media(min-width:1025px){
+            .aboutus{
+                flex-direction: row;
+            }
+        }
+
+        /*Aboutusminor*/
+
+        .aboutusminor{
+            height: 90%;
+        }
+         @media(min-width:601px) and (max-width:1024px){
+            .aboutusminor{
+                width: 15vw;
+                flex: 5%;
+            }
+        }
+        @media(min-width:1025px){
+            .aboutusminor{
+                width: 23vw;
+                flex: 15%;
+            }
         }
         .about{
-            background-color:none;
-            width: 280px;
-            height: 40px;
+            background-color:transparent;
+            width: 97%;
+            height: 100%;
             display: flex;
             align-items: center;
-            margin-left: 30px;
-            border-bottom: solid grey;
-            font-size: 25px;
+            border-bottom:   1px solid grey;
+            font-size: 17.5px;
+            font-weight: bold;
             padding-bottom: 10px;
-            color: 
-            grey;
+            color: grey;
         }
         .us{
-            background-color: none;
-            width: 270px;
-            height: 100px;
+            background-color: transparent;
+            width: 97%;
+            height: 20vh;
             display: flex;
             flex-direction: column;
-            font-size: 19px;
-            margin-left: 20px;
+            font-size: 16px;
             padding-top: 10px;
             color: white;
+            gap: 5px;
         }
-        .morework{
-            background-color:none;
-            width: 200px;
-            height: 40px;
-            display: flex;
-            align-items: center;
-            margin-left: -20px;
-            border-bottom: solid grey;
-            font-size: 25px;
-            padding-bottom: 10px;
-            color: grey;
-        }
-        .morework2{
-            background-color:none;
-            width:200px;
-            height: 40px;
-            display: flex;
-            align-items: center;
-            margin-left: -50px;
-            border-bottom: solid grey;
-            font-size: 25px;
-            padding-bottom: 10px;
-            color: grey;
-        }
-         .resources{
-            background-color: none;
-            width: 220px;
-            height: 100px;
-            display: flex;
-            flex-direction: column;
-            font-size: 19px;
-            padding-top: 10px;
+        .us a{
             color: white;
+            text-decoration: none;
         }
-        .getinvolved{
-            background-color: none;
-            width: 200px;
-            height: 100px;
-            display: flex;
-            flex-direction: column;
-            font-size: 19px;
-            margin-left: -50px;
-            padding-top: 10px;
-            color: white;
-        }
-        .latestbg{
-            background-color: none;
-            width: 250px;
-            height: 200px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding-left: 10px;
-            margin-bottom: 60px;
-            margin-right: -30px;
-        }
-        .latest{
-            background-color: none;
-            width: 100px;
-            height: 40px;
-            display: flex;
-            margin-left: -200px;
-            border-bottom: solid grey;
-            font-size: 25px;
-            padding-bottom: 10px;
-            color: grey;
-        }
-        .latestsub{
-            background-color: none;
-            width: 200px;
-            height: 100px;
-            display: flex;
-            flex-direction: column;
-            font-size: 19px;
-            margin-left: -100px;
-            padding-top: 10px;
-            color: white;
-        }
-        .workwithus{
-            background-color: none;
-            width: 250px;
-            height: 250px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            padding-left: 10px;
-            margin-bottom: 25px;
-        }
-        .work{
-            background-color:none;
-            width: 230px;
-            height: 40px;
-            display: flex;
-            align-items: center;
-            margin-left: -165px;
-            border-bottom: solid grey;
-            font-size: 25px;
-            padding-bottom: 10px;
-            color: grey;
-        }
-        .withus{
-            background-color: none;
-            width: 320px;
-            height: 50px;
-            display: flex;
-            flex-direction: row;
-            justify-content: center;
-            align-items: center;
-            font-size: 12px;
-            margin-left: -80px;
-            color: white;
-        }
-        .jobs{
+        
+        .last button{
             background-color: white;
             width: 150px;
             height: 40px;
@@ -913,23 +1441,36 @@
             justify-content: center;
             align-items: center;
             align-self: center;
-            margin: 20px;
-            margin-left: -225px;
+            margin-right: 320px;
+            position: static;
+        }
+        .last button:hover{
+            color: white;
+            background-color: grey;
         }
         .follow{
-            background-color: none;
-            width: 140px;
+            background-color: transparent;
+            width: 40vw;
             height: 50px;
             display: flex;
-            flex-direction: row;
             align-items: center;
-            margin-left: 267px;
             margin-top: 20px;
-
+        }
+        @media(min-width:601px) and (max-width:1024px){
+            .follow{
+                width: 15vw;
+                margin-left: 60px;
+            }
+        }
+        @media(min-width:1025px){
+            .follow{
+                width: 10vw;
+                margin-left: 150px;
+            }
         }
        .image{
             background-color: none;
-            width: 300px;
+            width: 50%;
             height: 50px;
             display: flex;
             justify-content: space-between;
@@ -939,66 +1480,119 @@
         }
         .atlast{
             background-color: black;
-            width: 600px;
+            width: 100%;
             height: 90px;
             color: white;
             display: flex;
             flex-direction: row;
             justify-content: center;
             align-items: center;
-            align-self: center;
-            padding-bottom: 50px;
+            align-self: center; 
             padding-top: 10px;
         }
         .lastlast{
             background-color: black;
-            width: 735px;
+            width: 100%;
             height: 90px;
             color: white;
             display: flex;
             align-items: center;
             padding-bottom: 50px;
             padding-top: 10px;
-            margin-left: 600px;
-            margin-top: -150px;
+        }
+        .bottomclose{
+            background-color: black;
+            padding: 10px;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+
+        }
+        @media(min-width:601px) and (max-width:1024px){
+            .bottomclose{
+                flex-direction: row;
+            }
+        }
+        @media(min-width:1025px){
+            .bottomclose{
+                flex-direction: row;
+            }
+        }
+
+
+
+          /* ✅ Desktop Styles (768px and up) */
+        @media (min-width: 768px) {
+        .menu-toggle {
+            display: none;
+        }
+
+        .nav-links {
+            flex-direction: row;
+            position: static;
+            display: flex !important;
+            gap: 20px;
+            width: auto;
+        }
+
+        .nav-links li {
+            padding: 0;
+        }
         }
 
     </style>
 </head>
 <body>
+
+  <!--Beginning-->
+
+
     <div class="box">
         <div class="boxc">
-        Which language would you like to use this in? <br>
-        <div class="omor2"><b>ENGLISH</b></div>
-        <div class="omorr1"><b>ESPANOL</b></div>
-        <div class="omorr2"><b>FRANCAIS</b></div>
-        <div class="omorr3"><b>KOREAN</b></div>
-        <div class="omorr4"><b>CHINESE</b></div>
-        <div class="omorr5"><b>ARABIC</b></div>
-        <div class="omor3"><b>CLOSE</b></div>
+        Which language would you like to use this in?</div>
+       <div class="enclose">
+         <div class="omor2"><a href="#" class="active">ENGLISH</a></div>
+        <div class="omorr1"><a href="#">ESPANOL</a></div>
+        <div class="omorr2"><a href="#">FRANCAIS</a></div>
+        <div class="omorr3"><a href="#">KOREAN</a></div>
+       </div>
+       <div class="enclose2">
+         <div class="omorr4"><a href="#">CHINESE</a></div>
+        <div class="omorr5"><a href="#">ARABIC</a></div>
+       </div>
+        <button><b>CLOSE</b>  <b style="font-size: 25px;font-weight: lighter;margin-bottom: 1px;">&#215;</b></button>
         </div>
     </div>
-    <div class="adam">
-        <div class="adamS">
-        <div class="adam2">
-            <image src="https://www.amnesty.org/en/wp-content/uploads/2021/08/129327069-45f0fe5f-7fa9-4b09-acbb-3272541534ab-170x72.png"></image>
-        </div><br>
-        <div class="adam2s"><b>ENGLISH</b></div>
-        </div>
 
-        <div class="adam3">
-           <div class="omor4"><b>WHO WE ARE</b></div>
-           <div class="omor5"> <b>WHAT WE DO</b> </div>
-           <div class="omor6"><b>COUNTRIES</b></div>
-           <div class="omor7"><b>GET INVOLVED</b></div>
-           <div class="omor8"> <b>LATEST </b></div>
-           <div class="adam4"><b>DONATE NOW</b></div>
-        </div>
+    <!--Toggle Menu-->
+
+     <nav class="navbar">
+    <div class="logo">
+         <div class="adam2"></div>
+         <div class="adam2s"><b>ENGLISH</b></div> 
     </div>
+   <div class="toggle-links">
+    <button><b>DONATE NOW</b></button>
+    <div class="menu-toggle" id="menu-toggle">☰</div>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="#">WHO WE ARE</a></li>
+      <li><a href="#">WHAT WE DO</a></li>
+      <li><a href="#">COUNTRIES</a></li>
+      <li><a href="#">GET INVOLVED</a></li>
+      <li><a href="#">LATEST</a></li>
+    </ul>
+   </div>
+  </nav>
+
+  <!--Section 1-->
 
     <div class="back">
-     <div class="back2"><b>US AIR STRIKE ON MIGRANT DETENTION CENTRE IN</b></div>
-     <div class="back3"><b>YEMEN MUST BE INVESTIGATED AS A WAR CRIME</b></div><br>
+     <div class="back2"><b>CUBAN STATE REPRESSES</b></div>
+    <div class="back3enclose">
+        <div class="back3"><b>WOMEN HUMAN RIGHTS </b></div>
+        <div class="back3"><b>DEFENDERS</b></div>
+    </div>
      <div class="small">
         <div class="small2"><b>READ MORE</b></div>
      </div>
@@ -1014,8 +1608,8 @@
         <div class="urgent"><b>URGENT ACTION</b></div>
     </div>
     <div class="weonly">
-        <b>We only want truth and <br>justice</b>
-        <div class="actnow1"><b>ACT NOW</b></div>
+        <b>We only want truth and justice</b>
+        <button><b>ACT NOW</b></button>
     </div>
     </div>
 
@@ -1024,9 +1618,9 @@
         <div class="cencor"><b>CENSORSHIP AND FREEDOM OF EXPRESSION</b></div>
     </div>
      <div class="weonly">
-        <b>Regulate the trade in policing equipments now</b>
-        <div class="actnow1"><b>ACT NOW</b></div>
-    </div>
+        <b>Regulate the trade in policing equipments </b>
+        <button><b>ACT NOW</b></button>
+        </div>
     </div>
 
     <div class="submain">
@@ -1034,8 +1628,8 @@
         <div class="urgent"><b>URGENT ACTION</b></div>
     </div>
     <div class="weonly">
-        <b>Release Dr. Hussam Abu<br>Safiya!</b>
-        <div class="actnow1"><b>ACT NOW</b></div>
+        <b>Release Dr. Hussam Abu Safiya!</b>
+       <button><b>ACT NOW</b></button>
     </div>
     </div>
 
@@ -1044,23 +1638,26 @@
          <div class="urgent"><b>ARMED CONFLICT</b></div>
     </div>
      <div class="demand">
-        <b>Demand an arms embargo<br>in Sudan</b>
-        <div class="actnow1"><b>ACT NOW</b></div>
+        <b>Demand an arms embargo in Sudan</b>
+        <button><b>ACT NOW</b></button>
     </div>
     </div>
     </div>
     
     <div class="campaign">
-        <b style="font-size: 35px;">We campaign for a world where human rights are enjoyed by all</b>
-        <p style="font-size: 18px;">Amnesty International is a global movement of more than 10 million people in over 
+        <b>We campaign for a world where human rights are enjoyed by all</b>
+        <p>Amnesty International is a global movement of more than 10 million people in over 
         150 countries and territories who campaign to end abuses of human rights.</p>
     </div>
     
     <!--Latest News-->
 
-    <div class="latest">
+    <div class="latet">
        <b>Latest news</b>
     </div>
+
+    <!--After Latest News-->
+    <!--Elsudan-->
 
     <div class="elsudan">
     <div class="el">
@@ -1081,7 +1678,7 @@
     <div class="srp">
     <div class="south">
         <div class="souths">NEWS</div>
-        <div class="southminor"><b>Southeast Asia: ASEAN Summit must <br> 
+        <div class="southminor"><b>Southeast Asia: ASEAN Summit must 
             address deteriorating crisis in <br> Myanmar and ongoing 
             scam <br> compound activity</b>
         </div>
@@ -1089,7 +1686,7 @@
 
     <div class="russia">
         <div class="souths">NEWS</div>
-        <div class="southminor"><b>Russia: Move to label Navalny’s Anti- <br>
+        <div class="southminor"><b>Russia: Move to label Navalny’s Anti-
             Corruption Foundation a “terrorist <br>
              organization” puts thousands in <br> danger</b>
         </div>
@@ -1097,7 +1694,7 @@
 
     <div class="pakistan">
          <div class="souths">NEWS</div>
-        <div class="southminor"><b>Pakistan: Inclusion of Baloch <br>
+        <div class="southminor"><b>Pakistan: Inclusion of Baloch
              activists on terrorist watchlist an <br> affront to human rights</b>
         </div>
     </div>
@@ -1112,10 +1709,10 @@
         <image src="https://www.amnesty.org/en/wp-content/uploads/2023/02/Amnesty-Icons-People-Group.png"></image>
     </div>
     <div class="sincebrowse">
-    <div class="since">Since 1961, we’ve been helping people claim their <br>
+    <div class="since">Since 1961, we've been helping people claim their
                        rights across the world
     </div>
-    <div class="browse"><b>LEARN ABOUT AMNESTY</b></div>
+    <button><b>LEARN ABOUT AMNESTY</b></button>
     </div>
     </div>
 
@@ -1125,9 +1722,8 @@
         <image src="https://www.amnesty.org/en/wp-content/uploads/2022/03/Amnesty-Icons-17-Protest-Placards-150x150.png"></image>
     </div>
     <div class="sincebrowse">
-     <div class="sincemid">From the death penalty to free speech, we protect <br> people’s human rights
-    </div>
-    <div class="browsemid"><b>BROWSE THE ISSUES</b></div>
+     <div class="since">From the death penalty to free speech, we protect people's human right</div>
+    <button><b>BROWSE THE ISSUES</b></button>
     </div>
     </div>
 
@@ -1137,9 +1733,9 @@
         <image src="https://www.amnesty.org/en/wp-content/uploads/2023/02/Amnesty-Icons-Activism-Hand-Protest-Vote.png"></image>
     </div>
     <div class="sincebrowse">
-     <div class="since">Write a letter, volunteer, donate… and speak out <br> against injustice worldwide
+     <div class="since">Write a letter, volunteer, donate... and speak out against injustice worldwide
     </div>
-    <div class="takeaction"><b>TAKE ACTION</b></div>
+    <button><b>TAKE ACTION</b></button>
     </div>
     </div>
     </div>
@@ -1165,67 +1761,64 @@
     <!--Last Part-->
 
     <div class="last">
+
     <div class="aboutus">
+        <div class="aboutusminor">
     <div class="about"><b>ABOUT US</b></div>
     <div class="us">
-        <b>
-        Contact Us <br>
-        How We’re Run <br>
-        Modern Slavery Act Statement <br>
-        Finances
-        </b>
+        <a href="#">Contact Us </a>
+        <a href="#">How We’re Run </a>
+        <a href="#">Modern Slavery Act Statement </a>
+        <a href="#">Finances</a>
+        
     </div>
     </div>
+    
    
-    <div class="aboutus">
-    <div class="morework"><b>RESOURCES</b></div>
-    <div class="resources">
-        <b>
-       Media Centre <br>
-       Human Rights Education <br>
-       Human Rights Courses <br>
-       Annual report archive <br>
-        </b>
+    <div class="aboutusminor">
+         <div class="about"><b>RESOURCES</b></div>
+    <div class="us">
+       <a href="#">Media Centre </a>
+       <a href="#">Human Rights Education </a>
+       <a href="#">Human Rights Courses </a>
+       <a href="#">Annual report archive</a>
     </div>
     </div>
 
-    <div class="aboutus">
-    <div class="morework2"><b>GET INVOLVED</b></div>
-    <div class="getinvolved">
-        <b>
-       Join <br>
-       Take Action <br>
-       Volunteer <br>
+    <div class="aboutusminor">
+    <div class="about"><b>GET INVOLVED</b></div>
+    <div class="us">
+        <a href="#">Join</a>
+        <a href="#">Take Action</a>
+        <a href="#">Volunteer</a>
+    </div>
+    </div>
+    
+   
+    <div class="aboutusminor">
+        <div class="about"><b>LATEST</b></div>
+    <div class="us">
+            <a href="#">News</a>
+            <a href="#">Campaigns</a>
+            <a href="#">Research</a>
+    </div>
+    </div>
+    <div></div>
+     
+    <div class="aboutusminor">
+    <div class="about"><b>WORK WITH US</b></div>
+    <div class="us">
+        <b style="font-size: 12px;">
+       If you are talented and passionate about human rights then Amnesty International wants to hear from you.
         </b>
     </div>
+    <button><b>JOBS & INTERNSHIPS</b></button>
     </div>
-
-    <div class="latestbg">
-    <div class="latest"><b>LATEST</b></div>
-    <div class="latestsub">
-        <b>
-       News <br>
-       Campaigns <br>
-       Research
-        </b>
-    </div>
-    </div>
-
-    <div class="workwithus">
-    <div class="work"><b>WORK WITH US</b></div>
-    <div class="withus">
-        <b>
-       If you are talented and passionate about human rights then <br>
-       Amnesty International wants to hear from you.
-        </b>
-    </div>
-    <div class="jobs"><b>JOBS & INTERNSHIPS</b></div>
-    </div>
-    </div>
+    </div></div>
 
     <!--Privacy-->
 
-    
+    <div class="bottomclose">
     <div class="atlast">
         Privacy Policy
         Accessibility
@@ -1234,18 +1827,29 @@
         Refunds of Donations <br><br>
         © 2025 Amnesty International
     </div>
-
     <div class="lastlast">
            <div class="follow"> FOLLOW US ON:</div>
            <div class="image">
-            <image src="image\pngwing.com (1).png" width="30px"></image>
+            <image src="data:image/png;base64,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" width="30px"></image>
             <image src="https://w7.pngwing.com/pngs/815/101/png-transparent-www-mevrouwpak-nl-advertising-graphic-design-instagram-instagram-logo-business-advertising-thumbnail.png" width="30px"></image>
             <image src="https://w7.pngwing.com/pngs/22/899/png-transparent-twitter-x-twitter-social-media-social-media-logo-logo-social-3d-icon-thumbnail.png" width="30px"></image>
             <image src="https://w7.pngwing.com/pngs/221/750/png-transparent-tiktok-icon-thumbnail.png" width="30px"></image>
             <image src="https://w7.pngwing.com/pngs/457/1007/png-transparent-youtube-computer-icons-youtube-angle-rectangle-black-thumbnail.png" width="30px"></image>
-            <image src="image\pngwing.com (6).png" width="30px"></image>
+            <image src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRN-YOkZJTmmOB2sG_L8-Ulc4NA2WO4kDsPxg&s" width="30px"></image>
             </div>
     </div>
+    </div>
 
+
+    <script>
+        // Toggle menu for mobile
+    const toggle = document.getElementById('menu-toggle');
+    const navLinks = document.getElementById('nav-links');
+
+    toggle.addEventListener('click', () => {
+    navLinks.classList.toggle('show');
+});
+
+    </script>
 </body>
 </html>
